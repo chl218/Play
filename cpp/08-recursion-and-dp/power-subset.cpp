@@ -23,67 +23,28 @@ std::vector<std::vector<int> > getSubset(std::vector<int> &set, int index) {
       allSubsets = getSubset(set, index+1);
 
       int value = set[index];
-      // printf("allsubset size: %d index %d value %d\n", allSubsets.size(), index, value);
 
       std::vector<std::vector<int> > toAppend;
-
       std::vector<std::vector<int> >::iterator b = allSubsets.begin();
       std::vector<std::vector<int> >::iterator e = allSubsets.end();
 
-      // printf("before:\n");
-      // for(std::vector<std::vector<int> >::iterator it = allSubsets.begin(); it != allSubsets.end(); it++) {
-      //    printf("{ ");
-      //    for(std::vector<int>::iterator itt = (*it).begin(); itt != (*it).end(); itt++) {
-      //       printf("%d ", *itt);
-      //    }
-      //    printf("}\n");
-      // }
-      // printf("\n");
-
       while(b != e) {
-         // printf("old  subset { ");
-         // for(std::vector<int>::iterator it = (*b).begin(); it != (*b).end(); it++) {
-         //    printf("%d ", *it);
-         // }
-         // printf("}\n");
-
          std::vector<int> newSubset;
          newSubset = (*b);
-         // printf("pushing back: %d\n", value);    
          newSubset.push_back(value);
-
-         // printf("new subset: { ");
-         // for(std::vector<int>::iterator it = newSubset.begin(); it != newSubset.end(); it++) {
-         //    printf("%d ", *it);
-         // }
-         // printf("}\n\n");
-
          toAppend.push_back(newSubset);
          b++;
       }
 
       b = toAppend.begin();
       e = toAppend.end();
-
       while(b != e) {
          allSubsets.push_back(*b);
          b++;
       }
-
-      // printf("after:\n");
-      // for(std::vector<std::vector<int> >::iterator it = allSubsets.begin(); it != allSubsets.end(); it++) {
-      //    printf("{ ");
-      //    for(std::vector<int>::iterator itt = (*it).begin(); itt != (*it).end(); itt++) {
-      //       printf("%d ", *itt);
-      //    }
-      //    printf("}\n");
-      // }
-      // printf("\n");
    }
 
    return allSubsets;
-
-
 }
 
 
